@@ -1,7 +1,7 @@
 // Function: f(n) = g(n) + h(n)
 // Global variables
-var cols = 30
-var rows = 30
+var cols = 15
+var rows = 15
 var w;
 var h;
 var grid;
@@ -58,6 +58,15 @@ function guess(node) {
     return d
 }
 
+function buildPath(node) {
+    currPath = []
+    let temp = node
+    while (temp !== undefined) {
+        currPath.push(temp)
+        temp = temp.prev
+    }
+}
+
 function draw() {
     // Emulate the outer loop
     if (openSet.length > 0) {
@@ -71,6 +80,7 @@ function draw() {
 
         let current = openSet[lower]
 
+        buildPath(current)
         // If current is goal, then we're done
         if (current === end){
             console.log('DONE');
