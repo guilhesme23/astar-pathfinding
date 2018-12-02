@@ -9,8 +9,8 @@ class Spot {
         this.y = j * h
 
         // Self result of the functions f(n), g(n) and h(n)
-        this.f = 0
-        this.g = 0
+        this.f = Infinity
+        this.g = Infinity
         this.h = 0
 
         // Adjacency list (All nodes that this node connect)
