@@ -17,12 +17,30 @@ class Spot {
         this.neighbours = []
 
         // Previous node that leads to this
-        this.prev
+        this.prev = undefined
     }
 
     show(col) {
         fill(col)
         noStroke()
         rect(this.x, this.y, w - 1, h - 1)
+    }
+
+    linkNeighbours(grid) {
+        let i = this.i
+        let j = this.j
+
+        if (j > 0) {
+            this.neighbours.push(grid[i][j - 1]);
+        }
+        if (j < rows - 1) {
+            this.neighbours.push(grid[i][j + 1])
+        }
+        if (i > 0) {
+            this.neighbours, push(grid[i - 1][j])
+        }
+        if (i < cols - 1) {
+            this.neighbours.push(grid[i + 1][j])
+        }
     }
 }
