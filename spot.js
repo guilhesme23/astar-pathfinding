@@ -18,11 +18,21 @@ class Spot {
 
         // Previous node that leads to this
         this.prev = undefined
+
+        // This node is an obstacle?
+        this.obstacle = false
+        if (random(1) < 0.25) {
+            this.obstacle = true
+        }
     }
 
     show(col) {
         fill(col)
         noStroke()
+        if (this.obstacle) {
+            // Obstacles are always black
+            fill(0)
+        }
         rect(this.x, this.y, w - 1, h - 1)
     }
 
@@ -31,16 +41,23 @@ class Spot {
         let j = this.j
 
         if (j > 0) {
-            this.neighbours.push(grid[i][j - 1]);
+            this.addNeighbour(grid[i][j - 1]);
         }
         if (j < rows - 1) {
-            this.neighbours.push(grid[i][j + 1])
+            this.addNeighbour(grid[i][j + 1])
         }
         if (i > 0) {
-            this.neighbours, push(grid[i - 1][j])
+            this.addNeighbour(grid[i - 1][j])
         }
         if (i < cols - 1) {
-            this.neighbours.push(grid[i + 1][j])
+            this.addNeighbour(grid[i + 1][j])
+        }
+    }
+
+    addNeighbour(node) {
+        // Only link to a neighbour if it isn't an obstacle!!
+        if (!node.obstacle) {
+            this.neighbours.push(node)
         }
     }
 }

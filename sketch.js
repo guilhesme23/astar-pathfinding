@@ -36,6 +36,7 @@ function setup() {
     start = grid[0][0]
     start.g = 0 // start g value is 0
     start.f = 0 // start f value is 0
+    start.obstacle = false // The start can never be an obstacle!
     openSet.push(start)
 
     // The ending node of the algorithm
@@ -80,7 +81,7 @@ function draw() {
 
         let current = openSet[lower]
 
-        buildPath(current)
+        buildPath(current) // Build the optimal path until now
         // If current is goal, then we're done
         if (current === end){
             console.log('DONE');
