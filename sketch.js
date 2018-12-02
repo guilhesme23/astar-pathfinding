@@ -1,7 +1,7 @@
 // Function: f(n) = g(n) + h(n)
 // Global variables
-var cols = 15
-var rows = 15
+var cols = 30
+var rows = 30
 var w;
 var h;
 var grid;
