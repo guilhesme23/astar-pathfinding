@@ -1,7 +1,7 @@
 // Function: f(n) = g(n) + h(n)
 // Global variables
-var cols = 30
-var rows = 30
+var cols = 10
+var rows = 10
 var w;
 var h;
 var grid;
@@ -13,9 +13,9 @@ var currPath = []
 
 function setup() {
     // put setup code here
-    createCanvas(600, 600)
-    w = width / cols
-    h = height / rows
+    createCanvas(601, 601);
+    w = floor(width / cols);
+    h = floor(height / rows);
 
     // Initialize grid
     grid = new Array(cols)
