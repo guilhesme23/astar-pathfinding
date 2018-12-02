@@ -9,7 +9,7 @@ var closedSet = [];
 var start;
 var end;
 var currPath = [];
-var currentMaze;
+var curr;
 
 function setup() {
   createCanvas(601, 601);
@@ -29,16 +29,27 @@ function setup() {
   }
 
   // Make the initial cell the current and set as visited
-  currentMaze = grid[0][0].maze;
+  curr = grid[0][0].maze;
 }
 
 function draw() {
   background(30);
+  frameRate(1)
+
+  curr.visited = true;
+  curr.highlight()
+  let next = curr.pickNeighbour(grid);
+  if (next) {
+    console.log(next)
+    next.visited = true
+    curr = next
+  } else {
+    noLoop()
+  }
+
   for (let i in grid) {
     for (let j in grid[i]) {
       grid[i][j].maze.show();
     }
   }
-
-  currentMaze.visited = true;
 }
