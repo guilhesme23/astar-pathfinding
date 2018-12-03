@@ -1,5 +1,5 @@
 // Global variables
-var w = 60
+var w = 15
 var cols, rows
 var maze = []
 var current;
@@ -54,7 +54,7 @@ function draw() {
   }
 
   // pos++
-  frameRate(15)
+  // frameRate(15)
 }
 
 function removeWall(first, second) {

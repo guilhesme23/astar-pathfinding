@@ -29,12 +29,12 @@ class Spot {
 
     show(col) {
         fill(col)
-        noStroke()
+        stroke(33)
         if (this.obstacle) {
             // Obstacles are always black
             fill(0)
         }
-        rect(this.x, this.y, w - 1, h - 1)
+        rect(this.x, this.y, w, h)
     }
 
     linkNeighbours(grid) {
