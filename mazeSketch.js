@@ -42,12 +42,19 @@ function draw() {
   let next = current.pickNeighbor()
   if (next) {
     next.visited = true
+    stack.push(current)
     removeWall(current, next)
     current = next
+  } else if (stack.length > 0) {
+    current = stack.pop()
+  } else {
+    console.log('DONE MAZE')
+    current.show()
+    noLoop()
   }
 
   // pos++
-  frameRate(1)
+  frameRate(15)
 }
 
 function removeWall(first, second) {

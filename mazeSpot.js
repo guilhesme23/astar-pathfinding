@@ -63,6 +63,7 @@ class MazeCell {
   highlight() {
     let x = this.i * w
     let y = this.j * w
+    noStroke()
     fill(255,80,0)
     rect(x,y,w,w)
   }
@@ -73,7 +74,11 @@ class MazeCell {
 
     if (this.visited) {
       noStroke()
-      fill(180,0,180)
+      if (stack.includes(this)) {
+        fill(0,100,100)
+      } else {
+        fill(180,0,180)
+      }
       rect(x,y, w, w)
     }
 
