@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html lang="">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>p5.js example</title>
-    <style> body {padding: 0; margin: 0; overflow: hidden;} </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
-    <script src="sketch.js"></script>
-    <script src="spot.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+      }
+    </style>
   </head>
   <body>
+    <div class="theme-index center" id="particles-js">
+      <div class="container">
+        <ul>
+          <li>
+            <a href="maze.html" class="waves-effect btn">The Maze</a>
+          </li>
+          <li>
+            <a href="astar.html" class="waves-effect btn">The A* algorithm</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      particlesJS.load('particles-js', 'assets/particles.json', function () {
+          console.log('callback - particles.js config loaded');
+        });
+    </script>
   </body>
 </html>

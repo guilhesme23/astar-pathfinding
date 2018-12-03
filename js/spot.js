@@ -1,5 +1,5 @@
 class Spot {
-    constructor(i, j) {
+    constructor(i, j, allowObstacle) {
         // Position in the 2d array
         this.i = i
         this.j = j
@@ -21,19 +21,20 @@ class Spot {
 
         // This node is an obstacle?
         this.obstacle = false
-        if (random(1) < 0.25) {
+        if (random(1) < 0.25 && allowObstacle === undefined ) {
             this.obstacle = true
         }
+
     }
 
     show(col) {
         fill(col)
-        noStroke()
+        stroke(33)
         if (this.obstacle) {
             // Obstacles are always black
             fill(0)
         }
-        rect(this.x, this.y, w - 1, h - 1)
+        rect(this.x, this.y, w, h)
     }
 
     linkNeighbours(grid) {
@@ -41,15 +42,19 @@ class Spot {
         let j = this.j
 
         if (j > 0) {
+            // Top
             this.addNeighbour(grid[i][j - 1]);
         }
         if (j < rows - 1) {
+            // Bottom
             this.addNeighbour(grid[i][j + 1])
         }
         if (i > 0) {
+            // Left
             this.addNeighbour(grid[i - 1][j])
         }
         if (i < cols - 1) {
+            // Right
             this.addNeighbour(grid[i + 1][j])
         }
     }
