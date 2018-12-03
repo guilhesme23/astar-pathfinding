@@ -1,28 +1,27 @@
 // Global variables
-var cols = 10;
-var rows = 10;
-var w;
-var h;
+var w = 60
+var cols, rows
 var maze = []
+var current;
 
 function setup() {
-  createCanvas(601, 601);
-  w = floor(width / cols);
-  h = floor(height / rows);
+  createCanvas(601, 601)
+  cols = floor(width / w)
+  rows = floor(height / w)
 
-  // Create grid
-  for (let i = 0; i < cols; i++) {
-    for (let j = 0; j < rows; j++) {
-      let spot = new MazeSpot(i,j)
-      maze.push(spot)
+  for (let j=0; j<rows; j++) {
+    for (let i=0; i<cols; i++) {
+      let cell = new MazeCell(i,j)
+      maze.push(cell)
     }
   }
 
+  current = maze[0]
 }
 
 function draw() {
-  background(30);
-  
+  background(33)
+
   for (let i in maze) {
     maze[i].show()
   }

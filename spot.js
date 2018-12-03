@@ -25,7 +25,6 @@ class Spot {
             this.obstacle = true
         }
 
-        this.maze = new MazeSpot(this.i, this.j)
     }
 
     show(col) {
