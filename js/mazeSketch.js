@@ -24,6 +24,8 @@ function setup() {
   }
 
   current = maze[0]
+  current.start = true
+  maze[maze.length - 1].end = true
 }
 
 function draw() {

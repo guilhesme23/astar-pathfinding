@@ -3,6 +3,9 @@ class MazeCell {
     this.i = i
     this.j = j
 
+    this.start = false
+    this.end = false
+
     this.visited = false
 
     this.neighbors = []
@@ -76,6 +79,8 @@ class MazeCell {
       noStroke()
       if (stack.includes(this)) {
         fill(0,100,100)
+      } else if (this.start || this.end) {
+        fill(255,0,0)
       } else {
         fill(180,0,180)
       }
