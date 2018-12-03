@@ -5,6 +5,8 @@ class MazeCell {
 
     this.visited = false
 
+    this.neighbors = []
+
     // Order: Top, Bottom, Left, Right
     this.walls = [true, true, true, true]
   }
@@ -14,6 +16,26 @@ class MazeCell {
       return -1
     } else {
       return (i + (j * cols))
+    }
+  }
+
+  buildNeighbors() {
+    let top = maze[this.index(this.i, this.j - 1)]
+    let bottom = maze[this.index(this.i, this.j + 1)]
+    let left = maze[this.index(this.i - 1, this.j)]
+    let right = maze[this.index(this.i + 1, this.j)]
+
+    if (top) {
+      this.neighbors.push(top)
+    }
+    if (bottom) {
+      this.neighbors.push(bottom)
+    }
+    if (left) {
+      this.neighbors.push(left)
+    }
+    if (right) {
+      this.neighbors.push(right)
     }
   }
 

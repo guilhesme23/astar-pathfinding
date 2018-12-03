@@ -15,14 +15,23 @@ function setup() {
       maze.push(cell)
     }
   }
+  
+  for (let i in maze) {
+    maze[i].buildNeighbors()
+  }
 
-  current = maze[0]
+  current = maze[45]
 }
 
 function draw() {
   background(33)
 
-  for (let i in maze) {
-    maze[i].show()
+
+  current.show()
+  for (let i in current.neighbors) {
+    current.neighbors[i].show()
   }
+  // for (let i in maze) {
+  //   maze[i].show()
+  // }
 }
