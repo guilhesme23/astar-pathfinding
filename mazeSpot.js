@@ -39,6 +39,22 @@ class MazeCell {
     }
   }
 
+  pickNeighbor() {
+    let unvisited = []
+    for (let i in this.neighbors) {
+      if (!this.neighbors[i].visited) {
+        unvisited.push(this.neighbors[i])
+      }
+    }
+
+    if (unvisited.length > 0) {
+      let idx = floor(random(0, unvisited.length))
+      return unvisited[idx]
+    } else {
+      return undefined
+    }
+  }
+
   show() {
     let x = this.i * w
     let y = this.j * w
