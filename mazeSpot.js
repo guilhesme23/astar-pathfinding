@@ -41,7 +41,7 @@ class MazeSpot {
   highlight() {
     let x = this.x
     let y = this.y
-    fill(255, 10, 157);
+    fill(0, 10, 157);
     rect(x, y, x + w, y + h);
   }
 
